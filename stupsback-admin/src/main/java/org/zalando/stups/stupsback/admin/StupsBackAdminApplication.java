@@ -15,36 +15,20 @@
  */
 package org.zalando.stups.stupsback.admin;
 
-import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.factory.GraphDatabaseFactory;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import org.springframework.context.annotation.Bean;
-
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.neo4j.config.EnableNeo4jRepositories;
-import org.springframework.data.neo4j.config.Neo4jConfiguration;
-
+import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.zalando.stups.stupsback.admin.domain.Rating;
 import org.zalando.stups.stupsback.admin.nodedomain.RatingNode;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = {Rating.class})
+@EnableJpaRepositories(basePackageClasses = { Rating.class })
 @EnableNeo4jRepositories(basePackageClasses = RatingNode.class)
-public class StupsBackAdminApplication extends Neo4jConfiguration {
-    public StupsBackAdminApplication() {
-        setBasePackage("org.zalando.stups.stupsback.admin.nodedomain");
-    }
+public class StupsBackAdminApplication {
 
-    @Bean(destroyMethod = "shutdown")
-    public GraphDatabaseService graphDatabaseService() {
-        return new GraphDatabaseFactory().newEmbeddedDatabase("target/hello.db");
-    }
-
-    public static void main(final String[] args) throws Exception {
-        SpringApplication.run(StupsBackAdminApplication.class, args);
-    }
+	public static void main(final String[] args) throws Exception {
+		SpringApplication.run(StupsBackAdminApplication.class, args);
+	}
 
 }
