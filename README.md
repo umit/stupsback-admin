@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zalando-stups/stupsback-admin.svg?branch=master)](https://travis-ci.org/zalando-stups/stupsback-admin)
+
 ## STUPSback
 
 An simple Feedback-Tool.
