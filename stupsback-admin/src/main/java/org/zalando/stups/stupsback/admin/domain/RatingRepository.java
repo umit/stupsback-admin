@@ -13,19 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.zalando.stups.stupsback.admin;
+package org.zalando.stups.stupsback.admin.domain;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.zalando.stups.stupsback.admin.domain.Rating;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-@SpringBootApplication
-@EnableJpaRepositories(basePackageClasses={Rating.class})
-public class StupsBackAdminApplication {
-
-    public static void main(final String[] args) throws Exception {
-        SpringApplication.run(StupsBackAdminApplication.class, args);
-    }
-
-}
+public interface RatingRepository extends PagingAndSortingRepository<Rating, Long> { }

@@ -25,6 +25,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-releasetrain</artifactId>
@@ -32,6 +33,7 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            -->
             <dependency>
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
