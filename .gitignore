@@ -2,8 +2,12 @@ target
 .settings
 .classpath
 .project
-.iml
+*.iml
+.idea
 
 built
 node_modules
 node
+
+.springBeans
+
