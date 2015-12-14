@@ -11,3 +11,5 @@ node
 
 .springBeans
 
+bundle.js
+bundle.js.map
