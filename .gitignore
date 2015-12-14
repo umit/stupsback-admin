@@ -7,3 +7,6 @@ target
 built
 node_modules
 node
+
+.springBeans
+
