@@ -16,15 +16,13 @@
 package org.zalando.stups.stupsback.admin;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Hello world!
- */
+@SpringBootApplication
+public class StupsBackAdminApplication {
 
-@EnableAutoConfiguration
-public class App {
     public static void main(final String[] args) throws Exception {
-        SpringApplication.run(AppController.class, args);
+        SpringApplication.run(StupsBackAdminApplication.class, args);
     }
+
 }

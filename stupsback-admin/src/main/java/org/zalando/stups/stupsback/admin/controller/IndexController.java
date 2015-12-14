@@ -13,18 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.zalando.stups.stupsback.admin;
+package org.zalando.stups.stupsback.admin.controller;
 
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class AppController {
-    @RequestMapping("/")
-    @ResponseBody
-    String home() {
-        return "index";
-    }
+public class IndexController {
+
+	@RequestMapping("/")
+	public String home() {
+		return "index";
+	}
 }
