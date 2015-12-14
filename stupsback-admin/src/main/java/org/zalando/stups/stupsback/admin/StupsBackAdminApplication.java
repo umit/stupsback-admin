@@ -18,13 +18,10 @@ package org.zalando.stups.stupsback.admin;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.zalando.stups.stupsback.admin.domain.Rating;
-import org.zalando.stups.stupsback.admin.nodedomain.RatingNode;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackageClasses = { Rating.class })
-@EnableNeo4jRepositories(basePackageClasses = RatingNode.class)
 public class StupsBackAdminApplication {
 
 	public static void main(final String[] args) throws Exception {
