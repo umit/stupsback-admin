@@ -5,3 +5,8 @@ spring:
 
   thymeleaf:
     cache: false
+logging:
+  level:
+    org.springframework.web=DEBUG
+    org.hibernate=ERROR
+    org.springframework.data.neo4j=DEBUG
