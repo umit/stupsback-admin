@@ -19,6 +19,7 @@ import javax.persistence.Entity;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+@SuppressWarnings("serial")
 @Entity
 public class Rating extends AbstractPersistable<Long> {
 
@@ -28,7 +29,7 @@ public class Rating extends AbstractPersistable<Long> {
     private String meta;
     private String appId;
 
-    private Rating() {
+    protected Rating() {
         super();
     }
 
