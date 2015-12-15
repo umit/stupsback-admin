@@ -33,6 +33,6 @@
   },
   "scripts": {
     "watch": "webpack --watch -d",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --port 9090"
   }
 }

@@ -41,5 +41,17 @@ public class DatabaseLoader implements CommandLineRunner {
         this.repository.save(new Rating("Comment_4", 4, "test@example.org", "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_5", 5, "test@example.org", "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_6", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_7", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_8", 2, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_9", 3, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_10", 4, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_11", 5, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_12", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_13", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_14", 2, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_15", 3, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_16", 4, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_17", 5, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        this.repository.save(new Rating("Comment_18", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
     }
 }
