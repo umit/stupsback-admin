@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-    entry: './src/main/js/app.js',
+    entry: './src/main/js/main.js',
     devtool: 'sourcemaps',
     cache: true,
     debug: true,
@@ -11,14 +11,18 @@ module.exports = {
     },
     devServer: {
       inline: true,
-      contentBase: './dist'
+      contentBase: './dist',
+      // this does not work at the moment
+      proxy: {
+        "/api": "http://localhost:8080/api"
+      }
     },
     module: {
         loaders: [
             {
                 test: path.join(__dirname, '.'),
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader',
+                loader: 'babel',
                 query: {
                   presets: ['es2015', 'react']
                 }
