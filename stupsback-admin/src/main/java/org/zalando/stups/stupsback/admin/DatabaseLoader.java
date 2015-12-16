@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.stereotype.Component;
+import org.zalando.stups.stupsback.admin.domain.Application;
+import org.zalando.stups.stupsback.admin.domain.ApplicationRepository;
 import org.zalando.stups.stupsback.admin.domain.Likes;
 import org.zalando.stups.stupsback.admin.domain.LikesRepository;
 import org.zalando.stups.stupsback.admin.domain.Rating;
@@ -34,6 +36,8 @@ public class DatabaseLoader implements CommandLineRunner {
     private final RatingRepository repository;
 
     private final LikesRepository likesRepository;
+    
+    private final ApplicationRepository applicationRepository;
 
     @Override
     public void run(final String... strings) throws Exception {
@@ -96,5 +100,20 @@ public class DatabaseLoader implements CommandLineRunner {
         this.likesRepository.save(new Likes("testuser3", rating5));
         this.likesRepository.save(new Likes("testuser3", rating6));
         this.likesRepository.save(new Likes("testuser3", rating7));
+
+        this.applicationRepository.save(new Application("application_1", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_2", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_3", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_4", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_5", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_6", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_7", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_8", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_9", "partone", "parttwo"));
+
+        this.applicationRepository.save(new Application("application_10", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_11", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_12", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_13", "partone", "parttwo"));
     }
 }
