@@ -5,5 +5,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 /**
  * @author Christian Lohmann
  */
-public interface LikesRepository extends PagingAndSortingRepository<Likes, Long>{
+public interface UserLikeRepository extends PagingAndSortingRepository<UserLike, Long>{
 }

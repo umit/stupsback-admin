@@ -1,6 +1,7 @@
 package org.zalando.stups.stupsback.admin.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Likes extends AbstractPersistable<Long> {
+public class UserLike extends AbstractPersistable<Long> {
 
     private String user;
 

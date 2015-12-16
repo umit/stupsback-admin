@@ -9,11 +9,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 /**
  * @author Christian Lohmann
  */
-@RepositoryEventHandler(Likes.class)
-public class LikesHandler {
+@RepositoryEventHandler(UserLike.class)
+public class UserLikeHandler {
 
     @HandleBeforeCreate
-    public void handleCreate(Likes likes) {
+    public void handleCreate(UserLike likes) {
 
         final Optional<Object> principal = Optional.ofNullable(SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal());
