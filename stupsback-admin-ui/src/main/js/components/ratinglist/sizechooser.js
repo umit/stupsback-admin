@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppConstants from '../../constants/constants';
 
 export default class SizeChooser extends React.Component {
 
@@ -27,7 +28,7 @@ export default class SizeChooser extends React.Component {
 						<label className="control-label" htmlFor="pageSize">Size:</label>
 					</div>
 					<div className="col-lg-1">
-						<select className="form-control" ref="pageSize" id="pageSize" value={this.props.pageSize} onChange={this.handleInput} >
+						<select value={AppConstants.DEFAULT_PAGESIZE} className="form-control" ref="pageSize" id="pageSize" value={this.props.pageSize} onChange={this.handleInput} >
 							<option>5</option>
 							<option>10</option>
 							<option>25</option>
