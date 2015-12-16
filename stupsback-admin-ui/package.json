@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/zalando-stups/stupsback-admin",
   "dependencies": {
+    "history": "^1.13.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-router": "^1.0.0",

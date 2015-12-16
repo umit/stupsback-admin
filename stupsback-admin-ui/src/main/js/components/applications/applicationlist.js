@@ -1,18 +1,17 @@
 import React from 'react';
-import Rating from './rating';
-import SizeChooser from './sizechooser';
+import AppConstants from '../../constants/constants';
 
-export default class RatingList extends React.Component {
+export default class ApplicationList extends React.Component {
 
-	constructor(props){
-		super(props);
-		this.handleNavFirst = this.handleNavFirst.bind(this);
+  constructor(props){
+    super(props);
+    this.handleNavFirst = this.handleNavFirst.bind(this);
 		this.handleNavPrev = this.handleNavPrev.bind(this);
 		this.handleNavNext = this.handleNavNext.bind(this);
 		this.handleNavLast = this.handleNavLast.bind(this);
-	}
+  }
 
-	handleNavFirst(e){
+  handleNavFirst(e){
 		e.preventDefault();
 		this.props.onNavigate(this.props.links.first.href);
 	}
@@ -33,7 +32,7 @@ export default class RatingList extends React.Component {
 	}
 
 	render() {
-		var ratings = this.props.ratings.map(rating =>
+		var applications = this.props.ratings.map(application =>
 			<Rating key={rating._links.self.href} rating={rating} onDelete={this.props.onDelete} />
 		);
 
@@ -66,25 +65,17 @@ export default class RatingList extends React.Component {
 		return (
 			<div style={{paddingTop: 15}}>
 				<SizeChooser pageSize={this.props.pageSize}
-					 						updatePageSize={this.props.updatePageSize}
-											/>
+					 						updatePageSize={this.props.updatePageSize} />
 				<div style={{paddingTop: 15}}>
 					<table className="table table-condensed">
 						<thead>
 							<tr>
-								<th>App</th>
+								<th>Name</th>
 								<th>Stars</th>
-								<th>Comment</th>
-								<th>Feedback</th>
-								<th>FB-Geber</th>
-								<th>Date</th>
-								<th>Status</th>
-								<th>Git-Issue</th>
-								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							{ratings}
+							{applications}
 						</tbody>
 					</table>
 				</div>
@@ -98,4 +89,11 @@ export default class RatingList extends React.Component {
 			</div>
 		)
 	}
+
+  render(){
+    return (
+      <div>
+      </div>
+    )
+  }
 }
