@@ -20,28 +20,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.stereotype.Component;
+import org.zalando.stups.stupsback.admin.domain.Likes;
+import org.zalando.stups.stupsback.admin.domain.LikesRepository;
 import org.zalando.stups.stupsback.admin.domain.Rating;
 import org.zalando.stups.stupsback.admin.domain.RatingRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Component
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DatabaseLoader implements CommandLineRunner {
 
     private final RatingRepository repository;
 
-    @Autowired
-    public DatabaseLoader(final RatingRepository repository) {
-        this.repository = repository;
-    }
+    private final LikesRepository likesRepository;
 
     @Override
     public void run(final String... strings) throws Exception {
-        this.repository.save(new Rating("Comment_1", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
-        this.repository.save(new Rating("Comment_2", 2, "test@example.org", "{\"key\":\"value\"}", "appId"));
-        this.repository.save(new Rating("Comment_3", 3, "test@example.org", "{\"key\":\"value\"}", "appId"));
-        this.repository.save(new Rating("Comment_4", 4, "test@example.org", "{\"key\":\"value\"}", "appId"));
-        this.repository.save(new Rating("Comment_5", 5, "test@example.org", "{\"key\":\"value\"}", "appId"));
-        this.repository.save(new Rating("Comment_6", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
-        this.repository.save(new Rating("Comment_7", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
+        final Rating rating1 = this.repository.save(new Rating("Comment_1", 1, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
+        final Rating rating2 = this.repository.save(new Rating("Comment_2", 2, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
+        final Rating rating3 = this.repository.save(new Rating("Comment_3", 3, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
+        final Rating rating4 = this.repository.save(new Rating("Comment_4", 4, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
+        final Rating rating5 = this.repository.save(new Rating("Comment_5", 5, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
+        final Rating rating6 = this.repository.save(new Rating("Comment_6", 1, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
+        final Rating rating7 = this.repository.save(new Rating("Comment_7", 1, "test@example.org",
+                "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_8", 2, "test@example.org", "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_9", 3, "test@example.org", "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_10", 4, "test@example.org", "{\"key\":\"value\"}", "appId"));
@@ -63,5 +72,29 @@ public class DatabaseLoader implements CommandLineRunner {
         this.repository.save(new Rating("Comment_26", 4, "test@example.org", "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_27", 5, "test@example.org", "{\"key\":\"value\"}", "appId"));
         this.repository.save(new Rating("Comment_28", 1, "test@example.org", "{\"key\":\"value\"}", "appId"));
+
+        this.likesRepository.save(new Likes("testuser", rating1));
+        this.likesRepository.save(new Likes("testuser", rating2));
+        this.likesRepository.save(new Likes("testuser", rating3));
+        this.likesRepository.save(new Likes("testuser", rating4));
+        this.likesRepository.save(new Likes("testuser", rating5));
+        this.likesRepository.save(new Likes("testuser", rating6));
+        this.likesRepository.save(new Likes("testuser", rating7));
+
+        this.likesRepository.save(new Likes("testuser2", rating1));
+        this.likesRepository.save(new Likes("testuser2", rating2));
+        this.likesRepository.save(new Likes("testuser2", rating3));
+        this.likesRepository.save(new Likes("testuser2", rating4));
+        this.likesRepository.save(new Likes("testuser2", rating5));
+        this.likesRepository.save(new Likes("testuser2", rating6));
+        this.likesRepository.save(new Likes("testuser2", rating7));
+
+        this.likesRepository.save(new Likes("testuser3", rating1));
+        this.likesRepository.save(new Likes("testuser3", rating2));
+        this.likesRepository.save(new Likes("testuser3", rating3));
+        this.likesRepository.save(new Likes("testuser3", rating4));
+        this.likesRepository.save(new Likes("testuser3", rating5));
+        this.likesRepository.save(new Likes("testuser3", rating6));
+        this.likesRepository.save(new Likes("testuser3", rating7));
     }
 }
