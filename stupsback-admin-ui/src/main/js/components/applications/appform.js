@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default class AppForm extends React.Component {
 
@@ -9,7 +10,9 @@ export default class AppForm extends React.Component {
 
   handleFormSubmit(e){
     e.preventDefault();
-    console.log("Clicked")
+    var newApplication = {};
+    newApplication['name'] = ReactDOM.findDOMNode(this.refs['applicationName']).value.trim();
+    this.props.onCreate(newApplication);
   }
 
   render() {
@@ -17,24 +20,9 @@ export default class AppForm extends React.Component {
       <div className="row">
         <form className="form-horizontal">
           <div className="form-group">
-            <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
+            <label htmlFor="applicationName" className="col-sm-2 control-label">Name</label>
             <div className="col-sm-8">
-              <input type="email" className="form-control" id="inputEmail3" placeholder="Email" />
-            </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="inputPassword3" className="col-sm-2 control-label">Password</label>
-            <div className="col-sm-8">
-              <input type="password" className="form-control" id="inputPassword3" placeholder="Password" />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-8">
-              <div className="checkbox">
-                <label>
-                  <input type="checkbox"> Remember me </input>
-                </label>
-              </div>
+              <input type="text" className="form-control" ref="applicationName" id="applicationName" placeholder="Name for application" />
             </div>
           </div>
           <div className="form-group">

@@ -1,5 +1,6 @@
 import React from 'react';
 import AppConstants from '../../constants/constants';
+import Application from './application';
 
 export default class ApplicationList extends React.Component {
 
@@ -32,8 +33,8 @@ export default class ApplicationList extends React.Component {
 	}
 
 	render() {
-		var applications = this.props.ratings.map(application =>
-			<Rating key={rating._links.self.href} rating={rating} onDelete={this.props.onDelete} />
+		var applications = this.props.applications.map(application =>
+			<Application key={application._links.self.href} application={application} onDelete={this.props.onDelete} />
 		);
 
 		var navLinks = [];
@@ -64,14 +65,13 @@ export default class ApplicationList extends React.Component {
 
 		return (
 			<div style={{paddingTop: 15}}>
-				<SizeChooser pageSize={this.props.pageSize}
-					 						updatePageSize={this.props.updatePageSize} />
 				<div style={{paddingTop: 15}}>
 					<table className="table table-condensed">
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th>Stars</th>
+								<th>Partone</th>
+                <th>Parttwo</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -89,11 +89,4 @@ export default class ApplicationList extends React.Component {
 			</div>
 		)
 	}
-
-  render(){
-    return (
-      <div>
-      </div>
-    )
-  }
 }
