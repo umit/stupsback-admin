@@ -6,6 +6,13 @@ spring:
   thymeleaf:
     cache: false
 
+security:
+  basic:
+    enabled: true
+  user:
+    name: ${SBA_SECURITY_USER:admin}
+    password: ${SBA_SECURITY_PASSWORD:admin}
+
 logging:
   level:
     org.springframework.web: INFO
