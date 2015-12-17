@@ -70,8 +70,8 @@ export default class ApplicationList extends React.Component {
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th>Partone</th>
-                <th>Parttwo</th>
+								<th>username</th>
+                <th>Password</th>
 							</tr>
 						</thead>
 						<tbody>

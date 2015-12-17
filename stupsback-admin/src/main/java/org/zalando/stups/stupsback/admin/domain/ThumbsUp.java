@@ -16,7 +16,6 @@
 package org.zalando.stups.stupsback.admin.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -36,10 +35,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(name = "unique_user_rating", columnNames = {"user", "rating_id"}))
+@Table(uniqueConstraints = @UniqueConstraint(name = "unique_user_rating", columnNames = {"username", "rating_id"}))
 public class ThumbsUp extends AbstractPersistable<Long> {
 
-    private String user;
+    private String username;
 
     @ManyToOne
     private Rating rating;

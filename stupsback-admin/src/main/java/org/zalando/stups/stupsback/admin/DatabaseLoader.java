@@ -19,22 +19,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.boot.CommandLineRunner;
-
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import org.zalando.stups.stupsback.admin.domain.ThumbsUp;
-import org.zalando.stups.stupsback.admin.domain.ThumbsUpRepository;
 import org.zalando.stups.stupsback.admin.domain.Application;
 import org.zalando.stups.stupsback.admin.domain.ApplicationRepository;
 import org.zalando.stups.stupsback.admin.domain.Rating;
 import org.zalando.stups.stupsback.admin.domain.RatingRepository;
+import org.zalando.stups.stupsback.admin.domain.ThumbsUp;
+import org.zalando.stups.stupsback.admin.domain.ThumbsUpRepository;
 
 import com.google.common.collect.Lists;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
+@Profile("local")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DatabaseLoader implements CommandLineRunner {
 
