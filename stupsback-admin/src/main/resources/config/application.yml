@@ -19,14 +19,10 @@ spring:
 flyway:
   enabled: true
 
-security:
-  basic:
-    enabled: true
-  user:
-    name: ${SBA_SECURITY_USER:admin}
-    password: ${SBA_SECURITY_PASSWORD:admin}
-
 logging:
   level:
     org.springframework.web: INFO
     org.hibernate: INFO
+
+sba:
+  adminPassword: ${SBA_SECURITY_PASSWORD:admin}
