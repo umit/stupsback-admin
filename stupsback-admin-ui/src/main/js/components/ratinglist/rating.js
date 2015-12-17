@@ -15,7 +15,7 @@ export default class Rating extends React.Component {
 
     render() {
         let href = '';
-        if ("userLikes" in this.props.rating._links) {
+        if ("thumbUps" in this.props.rating._links) {
             href = this.props.rating._links.userLikes.href;
         }
         return (
