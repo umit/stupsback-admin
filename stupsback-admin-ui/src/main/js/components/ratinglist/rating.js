@@ -15,8 +15,8 @@ export default class Rating extends React.Component {
 
     render() {
         let href = '';
-        if ("thumbUps" in this.props.rating._links) {
-            href = this.props.rating._links.userLikes.href;
+        if ("thumbsUps" in this.props.rating._links) {
+            href = this.props.rating._links.thumbsUps.href;
         }
         return (
             <tr>
@@ -30,7 +30,7 @@ export default class Rating extends React.Component {
                 <td>n.A.</td>
                 <td>
 
-                    <LikeButton likeAssociationUri={href}/>
+                    <LikeButton likeAssociationUri={href} ratingUri={this.props.rating._links.self.href}/>
                     <button className="btn btn-default" onClick={this.handleDelete}>
                         <Icon name='github-square'/>
                     </button>
