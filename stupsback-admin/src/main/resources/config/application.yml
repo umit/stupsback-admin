@@ -16,6 +16,9 @@ spring:
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 
+management:
+  port: 7979
+
 flyway:
   enabled: true
 
