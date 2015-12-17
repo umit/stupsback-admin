@@ -17,13 +17,12 @@ spring:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
 management:
   port: 7979
+  security:
+    enabled: false
 
 flyway:
   enabled: true

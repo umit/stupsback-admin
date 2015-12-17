@@ -14,7 +14,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <spring-boot.version>1.3.0.RELEASE</spring-boot.version>
+        <spring-boot.version>1.3.1.BUILD-SNAPSHOT</spring-boot.version>
         <spring-data.version>Fowler-SR2</spring-data.version>
     </properties>
 
@@ -26,13 +26,13 @@
     <dependencyManagement>
         <dependencies>
             <!--
-            <dependency>
+                <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-releasetrain</artifactId>
                 <version>${spring-data.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
-            </dependency>
+                </dependency>
             -->
             <dependency>
                 <!-- Import dependency management from Spring Boot -->
@@ -66,4 +66,15 @@
         <developerConnection>scm:git:https://github.com/zalando-stups/stupsback-admin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>http://repo.spring.io/libs-snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
