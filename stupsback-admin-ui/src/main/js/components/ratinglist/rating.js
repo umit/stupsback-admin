@@ -1,5 +1,5 @@
 import React from 'react';
-import Like from '../like/like';
+import LikeButton from '../like/likeButton';
 
 export default class Rating extends React.Component {
 
@@ -29,7 +29,7 @@ export default class Rating extends React.Component {
                 <td>n.A.</td>
                 <td>
 
-                    <Like likeUrl={href}/>
+                    <LikeButton likeUrl={href} />
                     <button className="btn btn-default" onClick={this.handleDelete}>
                         <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </button>
