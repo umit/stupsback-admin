@@ -26,12 +26,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author Christian Lohmann
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@ToString(exclude = "rating")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
