@@ -21,6 +21,8 @@ spring:
 
 management:
   port: 7979
+  security:
+    enabled: false
 
 flyway:
   enabled: true
