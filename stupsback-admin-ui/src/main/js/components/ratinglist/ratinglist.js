@@ -74,9 +74,8 @@ export default class RatingList extends React.Component {
 							<tr>
 								<th>App</th>
 								<th>Stars</th>
-								<th>Comment</th>
 								<th>Feedback</th>
-								<th>FB-Geber</th>
+								<th>Feed-Bäcker</th>
 								<th>Date</th>
 								<th>Status</th>
 								<th>Git-Issue</th>

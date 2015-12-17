@@ -41,6 +41,7 @@ public class Rating extends AbstractPersistable<Long> {
     private String email;
     private String meta;
     private String appId;
+    private String commenter;
 
     @OneToMany(mappedBy = "rating")
     private List<ThumbsUp> thumbsUps;
