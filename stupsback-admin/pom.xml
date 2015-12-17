@@ -84,6 +84,10 @@
     <build>
         <resources>
             <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
                 <directory>${project.basedir}/docker</directory>
                 <targetPath>${project.build.directory}/docker</targetPath>
                 <filtering>true</filtering>
