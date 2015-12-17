@@ -14,3 +14,10 @@ node
 bundle.js
 bundle.js.map
 npm-debug.log
+
+*.eot
+*.woff
+*.ttf
+*.woff2
+*.svg
+
