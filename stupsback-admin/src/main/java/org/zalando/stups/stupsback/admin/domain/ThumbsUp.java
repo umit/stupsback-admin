@@ -15,10 +15,33 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Christian Lohmann
  */
-public interface UserLikeRepository extends PagingAndSortingRepository<UserLike, Long>{
+@Data
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(uniqueConstraints = @UniqueConstraint(name = "unique_user_rating", columnNames = {"user", "rating_id"}))
+public class ThumbsUp extends AbstractPersistable<Long> {
+
+    private String user;
+
+    @ManyToOne
+    private Rating rating;
+
 }
