@@ -15,34 +15,26 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
-import javax.persistence.Entity;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
+import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
+import org.springframework.util.StringUtils;
 
 /**
  * 
  * @author jbellmann
  *
  */
-@SuppressWarnings("serial")
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-public class Application extends AbstractPersistable<Long> {
+@RepositoryEventHandler(Application.class)
+public class ApplicationHandler {
 
-	private String name;
-	
-	private String description;
+	@HandleBeforeCreate
+	public void handleCreate(Application application) {
+		application.setUsername(buildUsername(application));
+		application.setPassword(RandomStringUtils.randomAlphanumeric(9));
+	}
 
-	private String username;
-
-	private String password;
-
+	protected String buildUsername(Application application) {
+		return StringUtils.trimAllWhitespace(application.getName()).toLowerCase();
+	}
 }

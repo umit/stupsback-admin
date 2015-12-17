@@ -129,19 +129,19 @@ public class DatabaseLoader implements CommandLineRunner {
 
         repository.save(ratings);
 
-        this.applicationRepository.save(new Application("application_1", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_2", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_3", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_4", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_5", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_6", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_7", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_8", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_9", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_1", "description", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_2","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_3","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_4","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_5","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_6","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_7","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_8","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_9","description",  "partone", "parttwo"));
 
-        this.applicationRepository.save(new Application("application_10", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_11", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_12", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_13", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_10","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_11","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_12","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_13","description",  "partone", "parttwo"));
     }
 }
