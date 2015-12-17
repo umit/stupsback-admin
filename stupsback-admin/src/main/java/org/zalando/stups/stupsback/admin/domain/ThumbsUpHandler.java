@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2015 Zalando SE (http://tech.zalando.com)
- * <p/>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p/>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p/>
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -35,9 +35,9 @@ public class ThumbsUpHandler {
 
         if (authentication != null) {
             final Optional<Object> principal = Optional.ofNullable(authentication.getPrincipal());
-            likes.setUser(principal.orElse(new String("testuser")).toString());
+            likes.setUsername(principal.orElse(new String("testuser")).toString());
         } else {
-            likes.setUser("anonymous");
+            likes.setUsername("anonymous");
         }
     }
 }

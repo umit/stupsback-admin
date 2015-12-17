@@ -13,26 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.zalando.stups.stupsback.admin.config;
+package org.zalando.stups.stupsback.admin;
 
+import java.io.IOException;
+
+import javax.sql.DataSource;
+
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.zalando.stups.stupsback.admin.domain.ApplicationHandler;
-import org.zalando.stups.stupsback.admin.domain.ThumbsUpHandler;
+import org.springframework.context.annotation.Profile;
 
-/**
- * @author Christian Lohmann
- */
+import com.opentable.db.postgres.embedded.EmbeddedPostgreSQL;
+
 @Configuration
-public class RepositoryConfig {
+@AutoConfigureBefore({DataSourceAutoConfiguration.class})
+@Profile("local")
+public class EmbeddedPostgresConfiguration {
 
-    @Bean
-    ThumbsUpHandler userLikeHandler() {
-        return new ThumbsUpHandler();
-    }
-
-    @Bean
-    ApplicationHandler applicationHandler() {
-        return new ApplicationHandler();
-    }
+	@Bean
+	public DataSource postgresDataSource() {
+		EmbeddedPostgreSQL pg;
+		try {
+			pg = EmbeddedPostgreSQL.start();
+			return pg.getPostgresDatabase();
+		} catch (IOException e) {
+			throw new RuntimeException("Unable to start embedded Postgres", e);
+		}
+	}
 }

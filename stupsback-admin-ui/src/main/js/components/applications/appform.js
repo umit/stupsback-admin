@@ -13,6 +13,7 @@ export default class AppForm extends React.Component {
     var newApplication = {};
     newApplication['name'] = ReactDOM.findDOMNode(this.refs['applicationName']).value.trim();
     this.props.onCreate(newApplication);
+    ReactDOM.findDOMNode(this.refs['applicationName']).value = '';
   }
 
   render() {
