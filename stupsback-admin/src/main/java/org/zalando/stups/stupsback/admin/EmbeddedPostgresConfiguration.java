@@ -20,6 +20,7 @@ import java.io.IOException;
 import javax.sql.DataSource;
 
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,7 @@ import com.opentable.db.postgres.embedded.EmbeddedPostgreSQL;
 @Configuration
 @AutoConfigureBefore({DataSourceAutoConfiguration.class})
 @Profile("local")
+@ConditionalOnClass(EmbeddedPostgreSQL.class)
 public class EmbeddedPostgresConfiguration {
 
 	@Bean
