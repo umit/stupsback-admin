@@ -30,7 +30,7 @@ export default class Rating extends React.Component {
                 <td>n.A.</td>
                 <td>
 
-                    <LikeButton likeUrl={href}/>
+                    <LikeButton likeAssociationUri={href}/>
                     <button className="btn btn-default" onClick={this.handleDelete}>
                         <Icon name='github-square'/>
                     </button>
