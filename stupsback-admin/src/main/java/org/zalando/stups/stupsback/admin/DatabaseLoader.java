@@ -44,7 +44,7 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(final String... strings) throws Exception {
-        final Rating rating1 = this.repository.save(new Rating("Comment_1", 1, "test@example.org",
+        final Rating rating1 = this.repository.save(new Rating("Hey guys, you really did a nice job. Keep it on and hack this shit.", 1, "test@example.org",
                 "{\"key\":\"value\"}", "appId", new ArrayList<>()));
         final Rating rating2 = this.repository.save(new Rating("Comment_2", 2, "test@example.org",
                 "{\"key\":\"value\"}", "appId", new ArrayList<>()));
