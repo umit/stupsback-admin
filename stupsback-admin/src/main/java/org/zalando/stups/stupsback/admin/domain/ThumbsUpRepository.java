@@ -17,6 +17,7 @@ package org.zalando.stups.stupsback.admin.domain;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -28,4 +29,8 @@ public interface ThumbsUpRepository extends PagingAndSortingRepository<ThumbsUp,
 
     @RestResource(rel = "by-rating", path = "by-rating")
     List<ThumbsUp> findByRating(@Param("rating") final Rating rating);
+
+    @RestResource(rel = "delete-by-rating", path = "delete-by-rating")
+    @Query("DELETE FROM ThumbsUp tu WHERE tu.rating = ?1 AND tu.username = ?#{principal.emailAddress}")
+    void deleteByRatingAndUsername(@Param("rating") final Rating rating);
 }
