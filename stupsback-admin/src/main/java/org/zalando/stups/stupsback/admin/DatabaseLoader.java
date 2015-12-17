@@ -25,6 +25,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.zalando.stups.stupsback.admin.domain.UserLike;
 import org.zalando.stups.stupsback.admin.domain.UserLikeRepository;
+import org.zalando.stups.stupsback.admin.domain.Application;
+import org.zalando.stups.stupsback.admin.domain.ApplicationRepository;
 import org.zalando.stups.stupsback.admin.domain.Rating;
 import org.zalando.stups.stupsback.admin.domain.RatingRepository;
 
@@ -37,8 +39,8 @@ import lombok.RequiredArgsConstructor;
 public class DatabaseLoader implements CommandLineRunner {
 
     private final RatingRepository repository;
-
     private final UserLikeRepository userLikeRepository;
+    private final ApplicationRepository applicationRepository;
 
     @Override
     public void run(final String... strings) throws Exception {
@@ -127,5 +129,19 @@ public class DatabaseLoader implements CommandLineRunner {
 
         repository.save(ratings);
 
+        this.applicationRepository.save(new Application("application_1", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_2", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_3", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_4", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_5", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_6", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_7", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_8", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_9", "partone", "parttwo"));
+
+        this.applicationRepository.save(new Application("application_10", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_11", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_12", "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_13", "partone", "parttwo"));
     }
 }
