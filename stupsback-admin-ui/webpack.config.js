@@ -9,6 +9,12 @@ module.exports = {
         path: './dist',
         filename: "bundle.js"
     },
+    resolve: {
+        alias: {
+            components: path.resolve(__dirname, './src/main/js/components/'),
+            constants: path.resolve(__dirname, './src/main/js/constants/')
+        }
+    },
     devServer: {
       inline: true,
       contentBase: './dist',

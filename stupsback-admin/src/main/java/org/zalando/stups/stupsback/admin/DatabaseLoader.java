@@ -23,8 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.stereotype.Component;
-import org.zalando.stups.stupsback.admin.domain.UserLike;
-import org.zalando.stups.stupsback.admin.domain.UserLikeRepository;
+import org.zalando.stups.stupsback.admin.domain.ThumbsUp;
+import org.zalando.stups.stupsback.admin.domain.ThumbsUpRepository;
 import org.zalando.stups.stupsback.admin.domain.Application;
 import org.zalando.stups.stupsback.admin.domain.ApplicationRepository;
 import org.zalando.stups.stupsback.admin.domain.Rating;
@@ -39,7 +39,7 @@ import lombok.RequiredArgsConstructor;
 public class DatabaseLoader implements CommandLineRunner {
 
     private final RatingRepository repository;
-    private final UserLikeRepository userLikeRepository;
+    private final ThumbsUpRepository thumbsUpRepository;
     private final ApplicationRepository applicationRepository;
 
     @Override
@@ -81,51 +81,51 @@ public class DatabaseLoader implements CommandLineRunner {
         this.repository.save(new Rating("Comment_28", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
 
         final List<Rating> ratings = Lists.newArrayList(rating1, rating2, rating3, rating4, rating5, rating6, rating7);
-        final UserLike userLike = this.userLikeRepository.save(new UserLike("testuser", rating1));
-        rating1.getUserLikes().add(userLike);
-        final UserLike userLike1 = this.userLikeRepository.save(new UserLike("testuser", rating2));
-        rating2.getUserLikes().add(userLike1);
-        final UserLike userLike2 = this.userLikeRepository.save(new UserLike("testuser", rating3));
-        rating3.getUserLikes().add(userLike2);
-        final UserLike userLike3 = this.userLikeRepository.save(new UserLike("testuser", rating4));
-        rating4.getUserLikes().add(userLike3);
-        final UserLike userLike4 = this.userLikeRepository.save(new UserLike("testuser", rating5));
-        rating5.getUserLikes().add(userLike4);
-        final UserLike userLike5 = this.userLikeRepository.save(new UserLike("testuser", rating6));
-        rating6.getUserLikes().add(userLike5);
-        final UserLike userLike6 = this.userLikeRepository.save(new UserLike("testuser", rating7));
-        rating7.getUserLikes().add(userLike6);
+        final ThumbsUp thumbsUp = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating1));
+        rating1.getThumbsUps().add(thumbsUp);
+        final ThumbsUp thumbsUp1 = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating2));
+        rating2.getThumbsUps().add(thumbsUp1);
+        final ThumbsUp thumbsUp2 = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating3));
+        rating3.getThumbsUps().add(thumbsUp2);
+        final ThumbsUp thumbsUp3 = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating4));
+        rating4.getThumbsUps().add(thumbsUp3);
+        final ThumbsUp thumbsUp4 = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating5));
+        rating5.getThumbsUps().add(thumbsUp4);
+        final ThumbsUp thumbsUp5 = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating6));
+        rating6.getThumbsUps().add(thumbsUp5);
+        final ThumbsUp thumbsUp6 = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating7));
+        rating7.getThumbsUps().add(thumbsUp6);
 
 
-        final UserLike userLike7 = this.userLikeRepository.save(new UserLike("testuser2", rating1));
-        rating1.getUserLikes().add(userLike7);
-        final UserLike userLike8 = this.userLikeRepository.save(new UserLike("testuser2", rating2));
-        rating2.getUserLikes().add(userLike8);
-        final UserLike userLike9 = this.userLikeRepository.save(new UserLike("testuser2", rating3));
-        rating3.getUserLikes().add(userLike9);
-        final UserLike userLike10 = this.userLikeRepository.save(new UserLike("testuser2", rating4));
-        rating4.getUserLikes().add(userLike10);
-        final UserLike userLike11 = this.userLikeRepository.save(new UserLike("testuser2", rating5));
-        rating5.getUserLikes().add(userLike11);
-        final UserLike userLike12 = this.userLikeRepository.save(new UserLike("testuser2", rating6));
-        rating6.getUserLikes().add(userLike12);
-        final UserLike userLike13 = this.userLikeRepository.save(new UserLike("testuser2", rating7));
-        rating7.getUserLikes().add(userLike13);
+        final ThumbsUp thumbsUp7 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating1));
+        rating1.getThumbsUps().add(thumbsUp7);
+        final ThumbsUp thumbsUp8 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating2));
+        rating2.getThumbsUps().add(thumbsUp8);
+        final ThumbsUp thumbsUp9 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating3));
+        rating3.getThumbsUps().add(thumbsUp9);
+        final ThumbsUp thumbsUp10 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating4));
+        rating4.getThumbsUps().add(thumbsUp10);
+        final ThumbsUp thumbsUp11 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating5));
+        rating5.getThumbsUps().add(thumbsUp11);
+        final ThumbsUp thumbsUp12 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating6));
+        rating6.getThumbsUps().add(thumbsUp12);
+        final ThumbsUp thumbsUp13 = this.thumbsUpRepository.save(new ThumbsUp("testuser2", rating7));
+        rating7.getThumbsUps().add(thumbsUp13);
 
-        final UserLike userLike14 = this.userLikeRepository.save(new UserLike("testuser3", rating1));
-        rating1.getUserLikes().add(userLike14);
-        final UserLike userLike15 = this.userLikeRepository.save(new UserLike("testuser3", rating2));
-        rating2.getUserLikes().add(userLike15);
-        final UserLike userLike16 = this.userLikeRepository.save(new UserLike("testuser3", rating3));
-        rating3.getUserLikes().add(userLike16);
-        final UserLike userLike17 = this.userLikeRepository.save(new UserLike("testuser3", rating4));
-        rating4.getUserLikes().add(userLike17);
-        final UserLike userLike18 = this.userLikeRepository.save(new UserLike("testuser3", rating5));
-        rating5.getUserLikes().add(userLike18);
-        final UserLike userLike19 = this.userLikeRepository.save(new UserLike("testuser3", rating6));
-        rating6.getUserLikes().add(userLike19);
-        final UserLike userLike20 = this.userLikeRepository.save(new UserLike("testuser3", rating7));
-        rating7.getUserLikes().add(userLike20);
+        final ThumbsUp thumbsUp14 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating1));
+        rating1.getThumbsUps().add(thumbsUp14);
+        final ThumbsUp thumbsUp15 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating2));
+        rating2.getThumbsUps().add(thumbsUp15);
+        final ThumbsUp thumbsUp16 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating3));
+        rating3.getThumbsUps().add(thumbsUp16);
+        final ThumbsUp thumbsUp17 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating4));
+        rating4.getThumbsUps().add(thumbsUp17);
+        final ThumbsUp thumbsUp18 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating5));
+        rating5.getThumbsUps().add(thumbsUp18);
+        final ThumbsUp thumbsUp19 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating6));
+        rating6.getThumbsUps().add(thumbsUp19);
+        final ThumbsUp thumbsUp20 = this.thumbsUpRepository.save(new ThumbsUp("testuser3", rating7));
+        rating7.getThumbsUps().add(thumbsUp20);
 
         repository.save(ratings);
 

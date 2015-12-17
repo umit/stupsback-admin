@@ -41,6 +41,6 @@ public class Rating extends AbstractPersistable<Long> {
     private String appId;
 
     @OneToMany(mappedBy = "rating")
-    private List<UserLike> userLikes;
+    private List<ThumbsUp> thumbsUps;
 
 }

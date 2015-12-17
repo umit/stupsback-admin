@@ -15,30 +15,17 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.List;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 /**
  * @author Christian Lohmann
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-public class UserLike extends AbstractPersistable<Long> {
+public interface ThumbsUpRepository extends PagingAndSortingRepository<ThumbsUp, Long>{
 
-    private String user;
-
-    @ManyToOne
-    private Rating rating;
-
+    @RestResource(rel = "by-rating", path = "by-rating")
+    List<ThumbsUp> findByRating(@Param("rating") final Rating rating);
 }

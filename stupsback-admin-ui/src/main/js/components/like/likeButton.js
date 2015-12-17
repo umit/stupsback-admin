@@ -1,6 +1,8 @@
 import React from 'react';
-import client from '../client/client';
-import follow from '../client/follow';
+import client from 'components/client/client';
+import follow from 'components/client/follow';
+import AppConstants from 'constants/constants';
+import request from 'superagent';
 
 export default class LikeButton extends React.Component {
 
@@ -17,7 +19,7 @@ export default class LikeButton extends React.Component {
     }
 
     loadLikes() {
-        follow(client, this.props.likeUrl, [
+        follow(client, this.props.likeAssociationUri, [
             {rel: 'userLikes'}
         ]).then(likesCollection => {
             this.setState({count: likesCollection.length});
@@ -26,7 +28,11 @@ export default class LikeButton extends React.Component {
 
     handleClick() {
         this.props.likeHandler();
-
+        request
+            .get(AppConstants.LIKE_RESOURCE +'/search')
+            .set('Authorization', `Bearer ${tokens.get('kio')}`)
+            .accept('json')
+            .then(res => res.body);
     }
 
     render() {
@@ -39,5 +45,6 @@ export default class LikeButton extends React.Component {
 LikeButton.displayName = 'LikeButton';
 LikeButton.propTypes = {
     count: React.PropTypes.number,
-    likeUrl: React.PropTypes.string
+    likeAssociationUri: React.PropTypes.string,
+    likeResourceUri: React.PropTypes.string
 };
