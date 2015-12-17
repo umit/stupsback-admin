@@ -16,17 +16,22 @@ spring:
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+management:
+  port: 7979
+
 flyway:
   enabled: true
-
-security:
-  basic:
-    enabled: true
-  user:
-    name: ${SBA_SECURITY_USER:admin}
-    password: ${SBA_SECURITY_PASSWORD:admin}
 
 logging:
   level:
     org.springframework.web: INFO
     org.hibernate: INFO
+
+sba:
+  adminPassword: ${SBA_SECURITY_PASSWORD:admin}
