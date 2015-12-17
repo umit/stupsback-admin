@@ -38,9 +38,11 @@ import lombok.NoArgsConstructor;
 public class Application extends AbstractPersistable<Long> {
 
 	private String name;
+	
+	private String description;
 
-	private String partone;
+	private String username;
 
-	private String parttwo;
+	private String password;
 
 }

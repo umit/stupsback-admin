@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-fa';
 
 export default class Rating extends React.Component {
 
@@ -28,7 +29,7 @@ export default class Rating extends React.Component {
 						<span>     14</span>
 					</button>
 					<button className="btn btn-default" onClick={this.handleDelete}>
-						<span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						<Icon name='github-square' />
 					</button>
 					<button className="btn btn-default" onClick={this.handleDelete}>
 						<span className="glyphicon glyphicon-download-alt" aria-hidden="true"></span>

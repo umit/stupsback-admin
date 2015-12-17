@@ -19,14 +19,17 @@ module.exports = {
     },
     module: {
         loaders: [
-            {
-                test: path.join(__dirname, '.'),
+            {test: path.join(__dirname, '.'),
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 query: {
                   presets: ['es2015', 'react']
                 }
-            }
+            },
+            {test: /\.(otf|eot|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=8192&mimetype=application/font-woff'},
+            {test: /\.(png|jpg|jpeg|gif)$/, loaders: ['url?limit=8192', 'img']},
+            {test: /\.less$/, exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'autoprefixer', 'less-loader']},
+            {test: /\.css$/, loaders: ['style-loader', 'css-loader']}
         ]
     }
 };
