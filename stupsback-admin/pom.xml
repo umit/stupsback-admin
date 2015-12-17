@@ -49,11 +49,11 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
-        <!-- 
-        <dependency>
+        <!--
+            <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
+            </dependency>
         -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -77,7 +77,39 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/docker</directory>
+                <targetPath>${project.build.directory}/docker</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                    <include>Dockerfile</include>
+                    <include>scm-source.json</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.1.15</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skipPoms>false</skipPoms>
+                    <verbose>true</verbose>
+                    <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+                    <!-- important otherwise no properties in project -->
+                    <generateGitPropertiesFile>false</generateGitPropertiesFile>
+                    <!-- <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename> -->
+                    <dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -87,6 +119,44 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-artifact-to-dockerdir</id>
+                        <!-- may adjust to another phase before package but 
+                            make sure your plugin is bound to a phase
+                            because otherwise it wont be invoked during build! 
+                            Now its bound to the first phase of the
+                            default lifecycle for packaging type war -->
+                        <phase>verify</phase>
+                        <goals>
+                            <!-- use the copy-resources goal of this plugin 
+                                - it will copy resources :) -->
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <!-- this points to /target of the current project, 
+                                you may adjust it to wherever it must be placed to be packed into the root 
+                                of the war (just try&error) -->
+                            <outputDirectory>${project.build.directory}/docker</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <!-- this points to a folder /misc under 
+                                        the project root where we expect the lib.jar -->
+                                    <directory>${project.build.directory}</directory>
+                                    <!-- unless you specify what to include 
+                                        anything of the above directory will be included -->
+                                    <includes>
+                                        <include>${project.build.finalName}.jar</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
