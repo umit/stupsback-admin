@@ -16,11 +16,22 @@
 package org.zalando.stups.stupsback.admin.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 @SuppressWarnings("serial")
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class Rating extends AbstractPersistable<Long> {
 
     private String comment;
@@ -29,58 +40,7 @@ public class Rating extends AbstractPersistable<Long> {
     private String meta;
     private String appId;
 
-    protected Rating() {
-        super();
-    }
-
-    public Rating(final String comment, final Integer stars, final String email, final String meta,
-            final String appId) {
-        super();
-        this.comment = comment;
-        this.stars = stars;
-        this.email = email;
-        this.meta = meta;
-        this.appId = appId;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(final String comment) {
-        this.comment = comment;
-    }
-
-    public Integer getStars() {
-        return stars;
-    }
-
-    public void setStars(final Integer stars) {
-        this.stars = stars;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(final String email) {
-        this.email = email;
-    }
-
-    public String getMeta() {
-        return meta;
-    }
-
-    public void setMeta(final String meta) {
-        this.meta = meta;
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(final String appId) {
-        this.appId = appId;
-    }
+    @OneToMany(mappedBy = "rating")
+    private List<UserLike> userLikes;
 
 }

@@ -15,10 +15,30 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Christian Lohmann
  */
-public interface LikesRepository extends PagingAndSortingRepository<Likes, Long>{
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserLike extends AbstractPersistable<Long> {
+
+    private String user;
+
+    @ManyToOne
+    private Rating rating;
+
 }

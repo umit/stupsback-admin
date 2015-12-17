@@ -15,29 +15,24 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import java.util.Optional;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
+import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * @author Christian Lohmann
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-public class Likes extends AbstractPersistable<Long> {
+@RepositoryEventHandler(UserLike.class)
+public class UserLikeHandler {
 
-    private String user;
+    @HandleBeforeCreate
+    public void handleCreate(UserLike likes) {
 
-    @ManyToOne
-    private Rating rating;
+        final Optional<Object> principal = Optional.ofNullable(SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal());
+        likes.setUser(principal.orElse(new String("testuser")).toString());
 
+    }
 }
