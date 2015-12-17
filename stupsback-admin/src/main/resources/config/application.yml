@@ -6,6 +6,18 @@ spring:
   thymeleaf:
     cache: false
 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: true
+    database-platform: POSTGRES
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+flyway:
+  enabled: false
+
 security:
   basic:
     enabled: true
