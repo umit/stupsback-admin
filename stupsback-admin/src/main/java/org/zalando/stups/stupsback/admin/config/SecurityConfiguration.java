@@ -15,11 +15,15 @@
  */
 package org.zalando.stups.stupsback.admin.config;
 
+import static org.springframework.http.HttpMethod.OPTIONS;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -31,7 +35,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Value("${sba.adminPassword:admin}")
 	private String adminPassword;
 
-	@Override
+    @Override
+    public void configure(final WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(OPTIONS);
+    }
+
+    @Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/**").hasRole("USER").and().httpBasic();
 	}
