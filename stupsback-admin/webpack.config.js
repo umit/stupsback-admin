@@ -6,7 +6,7 @@ module.exports = {
     cache: true,
     debug: true,
     output: {
-        path: './dist',
+        path: './src/main/resources/static',
         filename: "bundle.js"
     },
     resolve: {
@@ -17,11 +17,7 @@ module.exports = {
     },
     devServer: {
       inline: true,
-      contentBase: './dist',
-      // this does not work at the moment
-      proxy: {
-        "/api": "http://localhost:8080/api"
-      }
+      contentBase: './src/main/resources/static'
     },
     module: {
         loaders: [

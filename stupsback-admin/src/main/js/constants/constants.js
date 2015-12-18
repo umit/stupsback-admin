@@ -1,5 +1,5 @@
 
-const BASE = 'http://localhost:8080/api';
+const BASE = '/api';
 
 export default {
   ROOT: BASE,
