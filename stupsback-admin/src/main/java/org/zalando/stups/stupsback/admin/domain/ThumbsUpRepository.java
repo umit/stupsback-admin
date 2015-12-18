@@ -29,8 +29,4 @@ public interface ThumbsUpRepository extends PagingAndSortingRepository<ThumbsUp,
 
     @RestResource(rel = "by-rating", path = "by-rating")
     List<ThumbsUp> findByRating(@Param("rating") final Rating rating);
-
-    @RestResource(rel = "delete-by-rating", path = "delete-by-rating")
-    @Query("DELETE FROM ThumbsUp tu WHERE tu.rating = ?1 AND tu.username = ?#{principal.emailAddress}")
-    void deleteByRatingAndUsername(@Param("rating") final Rating rating);
 }
