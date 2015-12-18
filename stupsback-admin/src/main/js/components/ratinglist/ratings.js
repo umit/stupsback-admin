@@ -4,6 +4,7 @@ import client from '../client/client';
 import follow from '../client/follow';
 import RatingList from './ratinglist';
 import AppConstants from '../../constants/constants';
+import stompClient from '../websocket/websocket';
 
 // the hole Ratings-Site
 export default class Ratings extends React.Component {
@@ -68,6 +69,50 @@ export default class Ratings extends React.Component {
 
 	componentDidMount(){
 		this.loadFromServer(this.state.pageSize);
+		stompClient.register([
+			{route: '/topic/newRating', callback: this.refreshAndGoToLastPage.bind(this)},
+			{route: '/topic/updateRating', callback: this.refreshCurrentPage.bind(this)},
+			{route: '/topic/deleteRating', callback: this.refreshCurrentPage.bind(this)}
+		]);
+	}
+
+	refreshAndGoToLastPage(message) {
+	    follow(client, root, [{
+	        rel: 'ratings',
+	        params: {size: this.state.pageSize}
+	    }]).done(response => {
+	        this.onNavigate(response.entity._links.last.href);
+	    })
+	}
+
+	refreshCurrentPage(message) {
+	    follow(client, root, [{
+	        rel: 'ratings',
+	        params: {
+	            size: this.state.pageSize,
+	            page: this.state.page.number
+	        }
+	    }]).then(ratingCollection => {
+	        this.links = ratingCollection.entity._links;
+	        this.page = ratingCollection.entity.page;
+
+	        return ratingCollection.entity._embedded.ratings.map(rating => {
+	            return client({
+	                method: 'GET',
+	                path: rating._links.self.href
+	            })
+	        });
+	    }).then(ratingPromises => {
+	        return when.all(ratingPromises);
+	    }).then(ratings => {
+	        this.setState({
+	            page: this.page,
+	            ratings: ratings,
+	            attributes: Object.keys(this.schema.properties),
+	            pageSize: this.state.pageSize,
+	            links: this.links
+	        });
+	    });
 	}
 
 	render(){

@@ -1,5 +1,7 @@
 var path = require('path');
 
+var node_dir = __dirname + '/node_modules';
+
 module.exports = {
     entry: './src/main/js/main.js',
     devtool: 'sourcemaps',
@@ -11,6 +13,8 @@ module.exports = {
     },
     resolve: {
         alias: {
+            'stompjs': node_dir + '/stompjs/lib/stomp.js',
+            'when': node_dir + '/when/when.js',
             components: path.resolve(__dirname, './src/main/js/components/'),
             constants: path.resolve(__dirname, './src/main/js/constants/')
         }
