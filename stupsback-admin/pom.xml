@@ -46,6 +46,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.2.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
@@ -174,28 +180,28 @@
                 <executions>
                     <execution>
                         <id>copy-artifact-to-dockerdir</id>
-                        <!-- may adjust to another phase before package but 
+                        <!-- may adjust to another phase before package but
                             make sure your plugin is bound to a phase
-                            because otherwise it wont be invoked during build! 
+                            because otherwise it wont be invoked during build!
                             Now its bound to the first phase of the
                             default lifecycle for packaging type war -->
                         <phase>verify</phase>
                         <goals>
-                            <!-- use the copy-resources goal of this plugin 
+                            <!-- use the copy-resources goal of this plugin
                                 - it will copy resources :) -->
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <!-- this points to /target of the current project, 
-                                you may adjust it to wherever it must be placed to be packed into the root 
+                            <!-- this points to /target of the current project,
+                                you may adjust it to wherever it must be placed to be packed into the root
                                 of the war (just try&error) -->
                             <outputDirectory>${project.build.directory}/docker</outputDirectory>
                             <resources>
                                 <resource>
-                                    <!-- this points to a folder /misc under 
+                                    <!-- this points to a folder /misc under
                                         the project root where we expect the lib.jar -->
                                     <directory>${project.build.directory}</directory>
-                                    <!-- unless you specify what to include 
+                                    <!-- unless you specify what to include
                                         anything of the above directory will be included -->
                                     <includes>
                                         <include>${project.build.finalName}.jar</include>
