@@ -4,7 +4,7 @@ import client from '../client/client';
 import follow from '../client/follow';
 import RatingList from './ratinglist';
 import AppConstants from '../../constants/constants';
-import stompClient from '../websocket/websocket';
+import stompClient from './websocket-listener';
 
 // the hole Ratings-Site
 export default class Ratings extends React.Component {
@@ -20,6 +20,9 @@ export default class Ratings extends React.Component {
 		this.updatePageSize = this.updatePageSize.bind(this);
 		this.onDelete = this.onDelete.bind(this);
 		this.onNavigate = this.onNavigate.bind(this);
+
+		this.refreshAndGoToLastPage = this.refreshAndGoToLastPage.bind(this);
+		this.refreshCurrentPage = this.refreshCurrentPage.bind(this);
 	}
 
 	loadFromServer(pageSize){
@@ -70,14 +73,15 @@ export default class Ratings extends React.Component {
 	componentDidMount(){
 		this.loadFromServer(this.state.pageSize);
 		stompClient.register([
-			{route: '/topic/newRating', callback: this.refreshAndGoToLastPage.bind(this)},
-			{route: '/topic/updateRating', callback: this.refreshCurrentPage.bind(this)},
-			{route: '/topic/deleteRating', callback: this.refreshCurrentPage.bind(this)}
+			{route: '/topic/newRating', callback: this.refreshAndGoToLastPage},
+			{route: '/topic/updateRating', callback: this.refreshCurrentPage},
+			{route: '/topic/deleteRating', callback: this.refreshCurrentPage}
 		]);
 	}
 
 	refreshAndGoToLastPage(message) {
-	    follow(client, root, [{
+			console.log(message);
+	    follow(client, AppConstants.ROOT, [{
 	        rel: 'ratings',
 	        params: {size: this.state.pageSize}
 	    }]).done(response => {
@@ -86,7 +90,8 @@ export default class Ratings extends React.Component {
 	}
 
 	refreshCurrentPage(message) {
-	    follow(client, root, [{
+			console.log(message);
+	    follow(client, AppConstants.ROOT, [{
 	        rel: 'ratings',
 	        params: {
 	            size: this.state.pageSize,

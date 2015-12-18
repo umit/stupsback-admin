@@ -3,9 +3,9 @@ import React from 'react';
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
-export default class StompClient extends React.Component {
+class StompClient extends React.Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props);
 	}
 

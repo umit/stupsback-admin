@@ -15,9 +15,11 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.List;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -43,7 +45,7 @@ public class Rating extends AbstractPersistable<Long> {
     private String appId;
     private String commenter;
 
-    @OneToMany(mappedBy = "rating")
+    @OneToMany(mappedBy = "rating", cascade=CascadeType.ALL)
     private List<ThumbsUp> thumbsUps;
 
 }

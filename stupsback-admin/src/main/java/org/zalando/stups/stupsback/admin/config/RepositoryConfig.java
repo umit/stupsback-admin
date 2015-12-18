@@ -18,6 +18,7 @@ package org.zalando.stups.stupsback.admin.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.zalando.stups.stupsback.admin.domain.ApplicationHandler;
+import org.zalando.stups.stupsback.admin.domain.RatingHandler;
 import org.zalando.stups.stupsback.admin.domain.ThumbsUpHandler;
 
 /**
@@ -35,4 +36,5 @@ public class RepositoryConfig {
     ApplicationHandler applicationHandler() {
         return new ApplicationHandler();
     }
+
 }

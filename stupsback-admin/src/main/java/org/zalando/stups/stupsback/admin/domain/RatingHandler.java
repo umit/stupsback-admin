@@ -1,6 +1,6 @@
 package org.zalando.stups.stupsback.admin.domain;
 
-import static org.zalando.stups.stupsback.admin.config.WebsocketConfiguration.MESSAGE_PREFIX;
+import static org.zalando.stups.stupsback.admin.config.WebsocketBrokerConfiguration.MESSAGE_PREFIX;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
@@ -9,7 +9,9 @@ import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 @RepositoryEventHandler(Rating.class)
 public class RatingHandler {
 	
