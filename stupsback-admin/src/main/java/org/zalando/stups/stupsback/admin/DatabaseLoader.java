@@ -15,6 +15,7 @@
  */
 package org.zalando.stups.stupsback.admin;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,40 +46,40 @@ public class DatabaseLoader implements CommandLineRunner {
     @Override
     public void run(final String... strings) throws Exception {
         final Rating rating1 = this.repository.save(new Rating("Hey guys, you really did a nice job. Keep it on and hack this shit.", 5, "test@example.org",
-                "{\"key\":\"value\"}", "Yourturn",  "Dangerous Dave", new ArrayList<>()));
+                "{\"key\":\"value\"}", "Yourturn",  "Dangerous Dave", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
         final Rating rating2 = this.repository.save(new Rating("Cool CLI!", 4, "test@example.org",
-                "{\"key\":\"value\"}", "Senza", "Unknown", new ArrayList<>()));
+                "{\"key\":\"value\"}", "Senza", "Unknown", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
         final Rating rating3 = this.repository.save(new Rating("Let me in!", 3, "test@example.org",
-                "{\"key\":\"value\"}", "Piu", "Unknown", new ArrayList<>()));
+                "{\"key\":\"value\"}", "Piu", "Unknown", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
         final Rating rating4 = this.repository.save(new Rating("Version, Versions, Versions.", 4, "test@example.org",
-                "{\"key\":\"value\"}", "Kio", "Unknown", new ArrayList<>()));
+                "{\"key\":\"value\"}", "Kio", "Unknown", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
         final Rating rating5 = this.repository.save(new Rating("Rotate my password", 5, "test@example.org",
-                "{\"key\":\"value\"}", "Mint-Worker","Unknown", new ArrayList<>()));
+                "{\"key\":\"value\"}", "Mint-Worker","Unknown", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
         final Rating rating6 = this.repository.save(new Rating("Everything should be green!", 4, "test@example.org",
-                "{\"key\":\"value\"}", "ZMON","Unknown", new ArrayList<>()));
+                "{\"key\":\"value\"}", "ZMON","Unknown", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
         final Rating rating7 = this.repository.save(new Rating("Comment_7", 3, "test@example.org",
-                "{\"key\":\"value\"}", "appId","Unknown", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_8", 2, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_9", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_10", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_11", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_12", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_13", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_14", 2, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_15", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_16", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_17", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_18", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_19", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_20", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_21", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_22", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_23", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_24", 2, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_25", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_26", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_27", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
-//        this.repository.save(new Rating("Comment_28", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new ArrayList<>()));
+                "{\"key\":\"value\"}", "appId","Unknown", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_8", 2, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_9", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_10", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_11", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_12", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_13", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_14", 2, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_15", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_16", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_17", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_18", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_19", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_20", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_21", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_22", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_23", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_24", 2, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_25", 3, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_26", 4, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_27", 5, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
+//        this.repository.save(new Rating("Comment_28", 1, "test@example.org", "{\"key\":\"value\"}", "appId", new URI("https://github.com/zalando-stups/stupsback-admin/issues/31"), new ArrayList<>() ));
 
         final List<Rating> ratings = Lists.newArrayList(rating1, rating2, rating3, rating4, rating5, rating6, rating7);
         final ThumbsUp thumbsUp = this.thumbsUpRepository.save(new ThumbsUp("testuser", rating1));
@@ -129,19 +130,19 @@ public class DatabaseLoader implements CommandLineRunner {
 
         repository.save(ratings);
 
-        this.applicationRepository.save(new Application("Yourturn", "UI for Kio", "partone", "parttwo"));
-        this.applicationRepository.save(new Application("Senza","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("Kio","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("Mint-Worker","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("Twintip","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("Piu","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_7","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_8","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_9","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("Yourturn", "UI for Kio", "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("Senza","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("Kio","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("Mint-Worker","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("Twintip","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("Piu","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("application_7","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("application_8","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("application_9","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
 
-        this.applicationRepository.save(new Application("application_10","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_11","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_12","description",  "partone", "parttwo"));
-        this.applicationRepository.save(new Application("application_13","description",  "partone", "parttwo"));
+        this.applicationRepository.save(new Application("application_10","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("application_11","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("application_12","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
+        this.applicationRepository.save(new Application("application_13","description",  "partone", "parttwo", new URI("https://github.com/zalando-stups/stupsback-admin")));
     }
 }
