@@ -72,15 +72,22 @@ export default class Ratings extends React.Component {
 
 	componentDidMount(){
 		this.loadFromServer(this.state.pageSize);
-		var es = new EventSource("/sse");
-		es.onmessage = function (event) {
-  		console.log(event.data);
+		this.state.es = new EventSource("/sse/update/ratings");
+		this.state.es.onmessage = function (event) {
+  		console.log(event);
 		};
 		stompClient.register([
 			{route: '/topic/newRating', callback: this.refreshAndGoToLastPage},
 			{route: '/topic/updateRating', callback: this.refreshCurrentPage},
 			{route: '/topic/deleteRating', callback: this.refreshCurrentPage}
 		]);
+	}
+
+	componentDidUnmount(){
+		if(this.state.es){
+			this.state.es.close();
+			delete this.state.es;
+		}
 	}
 
 	refreshAndGoToLastPage(message) {
