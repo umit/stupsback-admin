@@ -3,13 +3,18 @@ var path = require('path');
 var node_dir = __dirname + '/node_modules';
 
 module.exports = {
-    entry: './src/main/js/main.js',
     devtool: 'sourcemaps',
     cache: true,
     debug: true,
+    entry: [
+        './src/main/js/main.js',
+        'webpack/hot/dev-server'
+    ],
     output: {
-        path: './src/main/resources/static',
-        filename: "bundle.js"
+        path: './src/main/resources/static/dist',
+        filename: "bundle.js",
+        publicPath: '/dist/'
+
     },
     resolve: {
         alias: {
@@ -20,8 +25,17 @@ module.exports = {
         }
     },
     devServer: {
-      inline: true,
-      contentBase: './src/main/resources/static'
+        contentBase: 'src/main/js',
+        noInfo: false, //  --no-info option
+        quiet: false,
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        proxy: {
+            '/api*': 'http://localhost:8080',
+            '/sse*': 'http://localhost:8080',
+            '/feedback-stomp*': 'http://localhost:8080'
+        }
     },
     module: {
         loaders: [

@@ -22,6 +22,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

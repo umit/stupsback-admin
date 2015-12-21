@@ -46,7 +46,6 @@
   },
   "scripts": {
     "watch": "webpack --watch -d",
-    "start2": "webpack-dev-server --port 9090",
-    "start": "webpack --watch -d"
+    "start": "webpack-dev-server --progress --colors --inline --hot --port 9090"
   }
 }
