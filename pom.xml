@@ -69,4 +69,14 @@
         <developerConnection>scm:git:https://github.com/zalando-stups/stupsback-admin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+    
+    <repositories>
+        <repository>
+            <id>spring-milestone</id>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
