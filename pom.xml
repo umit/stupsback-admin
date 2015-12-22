@@ -21,7 +21,6 @@
 
     <modules>
         <module>stupsback-admin</module>
-        <!-- <module>stupsback-admin-ui</module>  -->
     </modules>
 
     <dependencyManagement>

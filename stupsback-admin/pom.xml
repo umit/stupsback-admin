@@ -70,7 +70,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -95,6 +95,30 @@
             <artifactId>postgresql</artifactId>
             <version>9.4-1206-jdbc42</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.kohsuke</groupId>
+            <artifactId>github-api</artifactId>
+            <version>1.72</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp-urlconnection</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -202,18 +226,18 @@
                         </goals>
                         <configuration>
                             <!-- this points to /target of the current project,
-                                you may adjust it to wherever it must be 
+                                you may adjust it to wherever it must be
                                 placed to be packed into the root
                                 of the war (just try&error) -->
                             <outputDirectory>${project.build.directory}/docker</outputDirectory>
                             <resources>
                                 <resource>
                                     <!-- this points to a folder /misc under
-                                        the project root where we expect 
+                                        the project root where we expect
                                         the lib.jar -->
                                     <directory>${project.build.directory}</directory>
                                     <!-- unless you specify what to include
-                                        anything of the above directory will 
+                                        anything of the above directory will
                                         be included -->
                                     <includes>
                                         <include>${project.build.finalName}.jar</include>

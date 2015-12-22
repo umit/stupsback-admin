@@ -17,6 +17,8 @@ package org.zalando.stups.stupsback.admin.domain;
 
 import javax.persistence.Entity;
 
+import java.net.URI;
+
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +27,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 
+ *
  * @author jbellmann
  *
  */
@@ -38,11 +40,13 @@ import lombok.NoArgsConstructor;
 public class Application extends AbstractPersistable<Long> {
 
 	private String name;
-	
+
 	private String description;
 
 	private String username;
 
 	private String password;
+
+    private URI repo;
 
 }

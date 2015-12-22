@@ -15,6 +15,7 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,6 +23,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,6 +46,7 @@ public class Rating extends AbstractPersistable<Long> {
     private String meta;
     private String appId;
     private String commenter;
+    private URI issue;
 
     @OneToMany(mappedBy = "rating", cascade=CascadeType.ALL)
     private List<ThumbsUp> thumbsUps;
