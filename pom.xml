@@ -20,6 +20,8 @@
     </properties>
 
     <modules>
+        <module>zmon-security-common</module>
+        <module>zmon-github-integration</module>
         <module>stupsback-admin</module>
     </modules>
 
@@ -67,15 +69,4 @@
         <developerConnection>scm:git:https://github.com/zalando-stups/stupsback-admin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>http://repo.spring.io/libs-snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>

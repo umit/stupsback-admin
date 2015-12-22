@@ -1,0 +1,37 @@
+#
+#
+#
+
+zmon:
+  oauth2:
+    sso:
+      client-id: d843ddae9fe32bdaab6c
+      client-secret: 31ef34a9fa0542ec2ac743a4a81962a71483d5c1
+  signup:
+    github:
+      allowed-users:
+        - jbellmann
+      allowed-orgas:
+        - zalando
+        - zalando-stups
+  authorities:
+    simple:
+      admins:
+        - jbellmann
+      users:
+        - Jan-M
+  teams:
+    simple:
+      teams:
+        jbellmann:
+          - firstTeam
+          - secondTeam
+          - thirdTeam
+
+server:
+    port: 8443
+    ssl:
+        key-store: classpath:keystore.p12
+        key-store-type: PKCS12
+        key-store-password: mypassword
+        key-alias: tomcat
