@@ -5,8 +5,8 @@
 zmon:
   oauth2:
     sso:
-      client-id: d843ddae9fe32bdaab6c
-      client-secret: 31ef34a9fa0542ec2ac743a4a81962a71483d5c1
+      client-id: ${SBA_GITHUB_CLIENT_ID:d843ddae9fe32bdaab6c}
+      client-secret: ${SBA_GITHUB_CLIENT_SECRET:31ef34a9fa0542ec2ac743a4a81962a71483d5c1}
   signup:
     github:
       allowed-users:
