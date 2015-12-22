@@ -34,3 +34,6 @@ logging:
   level:
     org.springframework.web: INFO
     org.hibernate: INFO
+
+server:
+  use-forward-headers: true
