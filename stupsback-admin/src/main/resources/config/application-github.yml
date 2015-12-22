@@ -1,0 +1,29 @@
+#
+# for github-login include this profile
+#
+
+zmon:
+  oauth2:
+    sso:
+      client-id: ${SBA_GITHUB_CLIENT_ID:d843ddae9fe32bdaab6c}
+      client-secret: ${SBA_GITHUB_CLIENT_SECRET:31ef34a9fa0542ec2ac743a4a81962a71483d5c1}
+  signup:
+    github:
+      allowed-users:
+        - jbellmann
+      allowed-orgas:
+        - zalando
+        - zalando-stups
+  authorities:
+    simple:
+      admins:
+        - jbellmann
+      users:
+        - Jan-M
+  teams:
+    simple:
+      teams:
+        jbellmann:
+          - firstTeam
+          - secondTeam
+          - thirdTeam
