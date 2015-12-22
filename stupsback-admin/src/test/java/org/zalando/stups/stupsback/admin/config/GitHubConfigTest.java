@@ -40,7 +40,7 @@ public class GitHubConfigTest {
     @Test
     public void testGithubConnector() throws Exception {
         final Properties properties = new Properties();
-        properties.put("oauth", "ceb628ba010c44238dadfc0aef6c546cbd912099");
+        properties.put("oauth", "");
         properties.put("login", "christianl.proxy@gmail.com");
         final GitHubBuilder builder = GitHubBuilder.fromProperties(properties);
         final GitHub gitHub = builder.withConnector(new OkHttpConnector(new OkUrlFactory(new OkHttpClient()))).build();
