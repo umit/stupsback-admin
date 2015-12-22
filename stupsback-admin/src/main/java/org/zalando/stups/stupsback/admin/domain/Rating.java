@@ -15,15 +15,13 @@
  */
 package org.zalando.stups.stupsback.admin.domain;
 
-import java.net.URI;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.List;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
-import org.springframework.data.rest.core.annotation.RestResource;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,7 +35,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@ToString(exclude = "thumbsUps")
+@ToString(exclude = {"thumbsUps", "issue"})
 public class Rating extends AbstractPersistable<Long> {
 
     private String comment;
@@ -46,9 +44,10 @@ public class Rating extends AbstractPersistable<Long> {
     private String meta;
     private String appId;
     private String commenter;
-    private URI issue;
 
     @OneToMany(mappedBy = "rating", cascade=CascadeType.ALL)
     private List<ThumbsUp> thumbsUps;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Issue issue;
 }

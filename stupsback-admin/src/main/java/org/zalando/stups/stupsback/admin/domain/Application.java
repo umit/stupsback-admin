@@ -47,6 +47,6 @@ public class Application extends AbstractPersistable<Long> {
 
 	private String password;
 
-    private URI repo;
+    private String repo;
 
 }
