@@ -16,6 +16,9 @@
 package org.zalando.stups.stupsback.admin.domain;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface ApplicationRepository extends PagingAndSortingRepository<Application, Long>{
+
+    Application findByName(@Param("name ")final String name);
 }
