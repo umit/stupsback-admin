@@ -19,6 +19,9 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
 
+  profiles:
+    include: github
+
 management:
   port: 7979
   security:
@@ -32,5 +35,5 @@ logging:
     org.springframework.web: INFO
     org.hibernate: INFO
 
-sba:
-  adminPassword: ${SBA_SECURITY_PASSWORD:admin}
+server:
+  use-forward-headers: true
