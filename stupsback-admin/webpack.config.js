@@ -8,7 +8,7 @@ module.exports = {
     debug: true,
     entry: [
         './src/main/js/main.js',
-        'webpack/hot/dev-server'
+        'webpack/hot/only-dev-server'
     ],
     output: {
         path: './src/main/resources/static/dist',
@@ -24,13 +24,21 @@ module.exports = {
             constants: path.resolve(__dirname, './src/main/js/constants/')
         }
     },
+    externals: [
+        {
+            "tether": {
+                root: "Tether",
+                commonjs2: "tether",
+                commonjs: "tether",
+                amd: "tether"
+            }
+        }
+    ],
     devServer: {
         contentBase: 'src/main/js',
         noInfo: false, //  --no-info option
         quiet: false,
         historyApiFallback: true,
-        hot: true,
-        inline: true,
         proxy: {
             '/api*': 'http://localhost:8080',
             '/sse*': 'http://localhost:8080',
