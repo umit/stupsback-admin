@@ -2,9 +2,15 @@
   "name": "stupsback-admin-ui",
   "version": "0.1.0",
   "description": "The UI for STUPSback (Feed the penguin)",
+  "homepage": "https://github.com/zalando-stups/stupsback-admin",
   "repository": {
     "type": "git",
     "url": "https://github.com/zalando-stups/stupsback-admin.git"
+  },
+  "author": "Joerg Bellmann",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/zalando-stups/stupsback-admin/issues"
   },
   "keywords": [
     "rest",
@@ -13,12 +19,10 @@
     "data",
     "react"
   ],
-  "author": "Joerg Bellmann",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/zalando-stups/stupsback-admin/issues"
+  "scripts": {
+    "watch": "webpack --watch -d",
+    "start": "webpack-dev-server --progress --colors --port 9090"
   },
-  "homepage": "https://github.com/zalando-stups/stupsback-admin",
   "dependencies": {
     "history": "^1.13.1",
     "react": "^0.14.2",
@@ -43,9 +47,5 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
-  },
-  "scripts": {
-    "watch": "webpack --watch -d",
-    "start": "webpack-dev-server --progress --colors --inline --hot --port 9090"
-  }
+    }
 }

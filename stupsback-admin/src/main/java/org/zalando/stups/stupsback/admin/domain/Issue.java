@@ -2,8 +2,10 @@ package org.zalando.stups.stupsback.admin.domain;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -28,5 +30,5 @@ public class Issue extends AbstractPersistable<Long> {
     private String description;
 
     @OneToMany(mappedBy = "issue", cascade= CascadeType.ALL)
-    private List<Rating> ratings;
+    private List<Rating> ratings = new ArrayList<>();
 }
